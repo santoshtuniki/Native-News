@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const connectDB = require('./config/db');
+const userRoute = require('./route/userRoute');
 
 require('dotenv').config();
 require('colors');
@@ -21,6 +22,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const PORT = process.env.PORT || 3000;
+
+app.use('/api/users', userRoute);
 
 // For any undefined Api's
 app.get('*', (req, res) => {

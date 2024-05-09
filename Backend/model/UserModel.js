@@ -4,32 +4,38 @@ const bcrypt = require('bcryptjs');
 const UserSchema = mongoose.Schema(
     {
         name: {
-            type: 'string',
+            type: String,
             required: true,
             trim: true,
         },
         email: {
-            type: 'string',
+            type: String,
             required: true,
             unique: true,
             trim: true,
         },
         password: {
-            type: 'string',
+            type: String,
             required: true,
             trim: true,
         },
         avatar: {
-            type: 'string',
+            type: String,
             default: 'https://ibb.co/5YPr38P',
         },
+        active: {
+            type: Boolean,
+            default: false,
+        },
+        activeToken: String,
+        activeExpires: Date,
     },
     {
         timestamps: true
     }
 )
 
-UserSchema.pre('save', async (next) => {
+UserSchema.pre('save', async function (next) {
     // only hash the password if it has been modified (or is new)
     if (!this.isModified('password')) {
         return next();
@@ -44,7 +50,7 @@ UserSchema.pre('save', async (next) => {
 
 })
 
-UserSchema.methods.comparePassword = async (enteredPassword) => {
+UserSchema.methods.comparePassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 }
 
