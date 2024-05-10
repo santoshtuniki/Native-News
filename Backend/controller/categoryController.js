@@ -49,11 +49,11 @@ const deleteCategory = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            msg: 'Successfully deleted',
+            msg: 'Successfully deleted category',
             data: category
         })
     } catch (error) {
-        console.log('Error deleting category:', error.message);
+        console.log(`Error deleting category with id ${req.params.catId}:`, error.message);
         next(error);
     }
 };
@@ -74,11 +74,11 @@ const updateCategory = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            msg: 'Successfully updated',
+            msg: 'Successfully updated category',
             data: category
         })
     } catch (error) {
-        console.log('Error updating category:', error.message);
+        console.log(`Error updating category with id ${req.params.catId}:`, error.message);
         next(error);
     }
 };

@@ -87,8 +87,96 @@ const getNewsById = async (req, res, next) => {
     }
 };
 
+const getSliderNews = async (req, res, next) => {
+    try {
+        const news = await News.find({ addToSlider: true })
+            .populate({
+                path: 'category',
+                select: ['_id', 'category_name']
+            });
+
+        res.status(200).json({
+            success: true,
+            count: news.length,
+            data: news
+        })
+    } catch (error) {
+        console.log(`Error getting slider news:`, error.message);
+        next(error);
+    }
+};
+
+const getNewsByCategory = async (req, res, next) => {
+    try {
+        const news = await News.find({ category: req.params.catId })
+            .populate({
+                path: 'category',
+                select: ['_id', 'category_name']
+            });
+
+        res.status(200).json({
+            success: true,
+            count: news.length,
+            data: news
+        })
+    } catch (error) {
+        console.log(`Error getting category news:`, error.message);
+        next(error);
+    }
+};
+
+const deleteNews = async (req, res, next) => {
+    try {
+        const news = await News.findByIdAndDelete(req.params.newsId);
+        if (!news) {
+            res.status(401).json({
+                success: false,
+                msg: 'News not found'
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            msg: 'Successfully deleted news',
+            data: category
+        })
+    } catch (error) {
+        console.log(`Error deleting news with id ${req.params.newsId}:`, error.message);
+        next(error);
+    }
+};
+
+const updateNews = async (req, res, next) => {
+    try {
+        const news = await News.findByIdAndUpdate(req.params.newsId, req.body, {
+            new: true,
+            runValidators: true
+        });
+
+        if (!news) {
+            res.status(401).json({
+                success: false,
+                msg: 'Mews not found'
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            msg: 'Successfully updated news',
+            data: category
+        })
+    } catch (error) {
+        console.log(`Error updating news with id ${req.params.newsId}:`, error.message);
+        next(error);
+    }
+};
+
 module.exports = {
     addNews,
     getAllNews,
     getNewsById,
+    getSliderNews,
+    getNewsByCategory,
+    deleteNews,
+    updateNews
 };

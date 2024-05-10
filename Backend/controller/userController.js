@@ -145,7 +145,7 @@ const getUserProfile = async (req, res, next) => {
             })
         }
     } catch (error) {
-        console.log('Error getting user:', error.message);
+        console.log('Error getting user profile:', error.message);
         next(error);
     }
 };
@@ -172,7 +172,7 @@ const updateUserProfile = async (req, res, next) => {
             })
         }
     } catch (error) {
-        console.log('Error getting user:', error.message);
+        console.log('Error updating user profile:', error.message);
         next(error);
     }
 };
