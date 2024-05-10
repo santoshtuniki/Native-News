@@ -3,6 +3,7 @@ const morgan = require('morgan');
 
 const connectDB = require('./config/db');
 const userRoute = require('./route/userRoute');
+const categoryRoute = require('./route/categoryRoute');
 
 require('dotenv').config();
 require('colors');
@@ -24,6 +25,17 @@ app.use(express.urlencoded({ extended: false }));
 const PORT = process.env.PORT || 3000;
 
 app.use('/api/users', userRoute);
+app.use('/api/category', categoryRoute);
+
+app.use(async (err, req, res, next) => {
+    res.status(err.status || 500);
+    res.send({
+        error: {
+            status: err.status,
+            msg: err.message
+        }
+    })
+});
 
 // For any undefined Api's
 app.get('*', (req, res) => {

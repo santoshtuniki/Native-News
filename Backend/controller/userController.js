@@ -22,6 +22,7 @@ const registerUser = async (req, res, next) => {
             })
         }
 
+        // Create User instance
         const user = new User({ name, email, password });
 
         // Crypto is an inbuilt package in nodeJS. Generate a 20 bit activation code.
@@ -69,7 +70,7 @@ const activeToken = async (req, res, next) => {
     try {
         const user = await User.findOne({
             activeToken: req.params.activeToken,
-            // activeExpires: { $gt: Date.now() }
+            activeExpires: { $gt: Date.now() }
         });
 
         // if invalid activation code
@@ -103,9 +104,8 @@ const activeToken = async (req, res, next) => {
 };
 
 const authUser = async (req, res, next) => {
-    const { email, password } = req.body;
-
     try {
+        const { email, password } = req.body;
         const user = await User.findOne({ email });
 
         if (user && (await user.comparePassword(password))) {
@@ -131,7 +131,6 @@ const authUser = async (req, res, next) => {
 const getUserProfile = async (req, res, next) => {
     try {
         const user = await User.findById(req.header._id);
-
         if (user) {
             res.status(200).json({
                 _id: user?._id,
@@ -151,14 +150,12 @@ const getUserProfile = async (req, res, next) => {
     }
 };
 
-const updateUserProfile =  async (req, res, next) => {
+const updateUserProfile = async (req, res, next) => {
     try {
         const user = await User.findById(req.header._id);
-
         if (user) {
             user.name = req.body.name || user.name;
             user.avatar = req.body.avatar || user.avatar;
-
             const updatedUser = await user.save();
 
             res.status(200).json({
