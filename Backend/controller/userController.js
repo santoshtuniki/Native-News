@@ -102,9 +102,58 @@ const activeToken = async (req, res, next) => {
     }
 };
 
+const authUser = async (req, res, next) => {
+    const { email, password } = req.body;
 
+    try {
+        const user = await User.findOne({ email });
+
+        if (user && (await user.comparePassword(password))) {
+            res.status(200).json({
+                _id: user?._id,
+                name: user?.name,
+                email: user?.email,
+                avatar: user?.avatar,
+                token: generateToken(user?._id)
+            })
+        } else {
+            res.status(401).json({
+                success: false,
+                msg: 'Unauthorized user'
+            })
+        }
+    } catch (error) {
+        console.log('Error authenticating user:', error);
+        next(error)
+    }
+};
+
+const getUserProfile = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.header._id);
+
+        if (user) {
+            res.status(200).json({
+                _id: user?._id,
+                name: user?.name,
+                email: user?.email,
+                avatar: user?.avatar
+            })
+        } else {
+            res.status(404).json({
+                success: false,
+                msg: 'User not found'
+            })
+        }
+    } catch (error) {
+        console.log('Error getting user:', error);
+        next(error)
+    }
+}
 
 module.exports = {
     registerUser,
-    activeToken
+    activeToken,
+    authUser,
+    getUserProfile
 };
