@@ -12,7 +12,7 @@ const protect = async (req, res, next) => {
             req.header = await User.findById(decoded.id).select('-password');
             next();
         } catch (error) {
-            console.log('Error verifying token:', error);
+            console.log('Error verifying token:', error.message);
             res.status(401).json({
                 success: false,
                 msg: 'Session Expired'

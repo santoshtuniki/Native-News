@@ -19,8 +19,8 @@ const addCategory = async (req, res, next) => {
             data: newCategory
         })
     } catch (error) {
-        console.log('Error creating category:', error)
-        next(err)
+        console.log('Error creating category:', error.message);
+        next(error);
     }
 };
 
@@ -32,8 +32,8 @@ const getAllCategories = async (req, res, next) => {
             data: categories
         })
     } catch (error) {
-        console.log('Error getting categories:', error)
-        next(err)
+        console.log('Error getting categories:', error.message);
+        next(error);
     }
 };
 
@@ -53,8 +53,8 @@ const deleteCategory = async (req, res, next) => {
             data: category
         })
     } catch (error) {
-        console.log('Error deleting category:', error)
-        next(err)
+        console.log('Error deleting category:', error.message);
+        next(error);
     }
 };
 
@@ -78,8 +78,8 @@ const updateCategory = async (req, res, next) => {
             data: category
         })
     } catch (error) {
-        console.log('Error updating category:', error)
-        next(err)
+        console.log('Error updating category:', error.message);
+        next(error);
     }
 };
 

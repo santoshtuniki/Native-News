@@ -10,8 +10,8 @@ const {
 }  = require('../controller/categoryController');
 
 router.route('/addCategory').post(protect, addCategory);
-router.route('/getAllCategory').delete(protect, getAllCategories);
+router.route('/getAllCategory').get(protect, getAllCategories);
 router.route('/deleteCategory/:catId').delete(protect, deleteCategory);
-router.route('/editCategory/:catId').delete(protect, updateCategory);
+router.route('/editCategory/:catId').put(protect, updateCategory);
 
 module.exports = router;

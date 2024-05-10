@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport(config);
 // verify connection configuration
 transporter.verify((error, success) => {
     if (error) {
-        console.log('Error connecting nodemailer transport:', error);
+        console.log('Error connecting nodemailer transport:', error.message);
     } else {
         console.log("Server is ready to take our messages".yellow);
     }

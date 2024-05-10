@@ -58,7 +58,7 @@ const registerUser = async (req, res, next) => {
 
         })
     } catch (error) {
-        console.log('Error registering user:', error);
+        console.log('Error registering user:', error.message);
         res.status(500).json({
             success: false,
             msg: 'Server is facing some issues.'
@@ -98,8 +98,8 @@ const activeToken = async (req, res, next) => {
             msg: 'Activation success'
         })
     } catch (error) {
-        console.log('Error finding user:', error);
-        next(error)
+        console.log('Error finding user:', error.message);
+        next(error);
     }
 };
 
@@ -123,8 +123,8 @@ const authUser = async (req, res, next) => {
             })
         }
     } catch (error) {
-        console.log('Error authenticating user:', error);
-        next(error)
+        console.log('Error authenticating user:', error.message);
+        next(error);
     }
 };
 
@@ -145,8 +145,8 @@ const getUserProfile = async (req, res, next) => {
             })
         }
     } catch (error) {
-        console.log('Error getting user:', error);
-        next(error)
+        console.log('Error getting user:', error.message);
+        next(error);
     }
 };
 
@@ -172,8 +172,8 @@ const updateUserProfile = async (req, res, next) => {
             })
         }
     } catch (error) {
-        console.log('Error getting user:', error);
-        next(error)
+        console.log('Error getting user:', error.message);
+        next(error);
     }
 };
 
