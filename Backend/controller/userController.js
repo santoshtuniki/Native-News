@@ -48,7 +48,7 @@ const registerUser = async (req, res, next) => {
             })
 
             // Save user object
-            const response = await user.save();
+            await user.save();
 
             res.status(200).json({
                 success: true,
@@ -65,6 +65,46 @@ const registerUser = async (req, res, next) => {
     }
 };
 
+const activeToken = async (req, res, next) => {
+    try {
+        const user = await User.findOne({
+            activeToken: req.params.activeToken,
+            // activeExpires: { $gt: Date.now() }
+        });
+
+        // if invalid activation code
+        if (!user) {
+            res.status(400).json({
+                success: false,
+                msg: 'Your activation link is invalid'
+            })
+        }
+
+        // if user is activated
+        if (user.active === true) {
+            res.status(200).json({
+                success: true,
+                msg: 'Your account is already activated. Login to use this app.'
+            })
+        }
+
+        // if user is not activated
+        user.active = true;
+        await user.save();
+
+        res.status(200).json({
+            success: true,
+            msg: 'Activation success'
+        })
+    } catch (error) {
+        console.log('Error finding user:', error);
+        next(error)
+    }
+};
+
+
+
 module.exports = {
-    registerUser
+    registerUser,
+    activeToken
 };
