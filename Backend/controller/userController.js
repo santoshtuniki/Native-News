@@ -149,11 +149,41 @@ const getUserProfile = async (req, res, next) => {
         console.log('Error getting user:', error);
         next(error)
     }
-}
+};
+
+const updateUserProfile =  async (req, res, next) => {
+    try {
+        const user = await User.findById(req.header._id);
+
+        if (user) {
+            user.name = req.body.name || user.name;
+            user.avatar = req.body.avatar || user.avatar;
+
+            const updatedUser = await user.save();
+
+            res.status(200).json({
+                _id: updatedUser?._id,
+                name: updatedUser?.name,
+                email: updatedUser?.email,
+                avatar: updatedUser?.avatar,
+                token: generateToken(updatedUser?._id)
+            })
+        } else {
+            res.status(404).json({
+                success: false,
+                msg: 'User not found'
+            })
+        }
+    } catch (error) {
+        console.log('Error getting user:', error);
+        next(error)
+    }
+};
 
 module.exports = {
     registerUser,
     activeToken,
     authUser,
-    getUserProfile
+    getUserProfile,
+    updateUserProfile
 };
