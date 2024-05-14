@@ -1,51 +1,58 @@
 {
-  "root": true,
-  "env": {
-      "browser": true,
-      "es2021": true,
-      "jest": true
-  },
-  "extends": [
-      "@react-native",
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:react-hooks/recommended"
-  ],
-  "settings": {
-      "react": {
-          "version": "detect"
-      }
-  },
-  "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module"
-  },
-  "plugins": [
-      "react"
-  ],
-  "rules": {
-      "indent": [
-          "error",
-          4
-      ],
-      "linebreak-style": [
-          "error",
-          "unix"
-      ],
-      "quotes": [
-          "error",
-          "single"
-      ],
-      "semi": [
-          "error",
-          "always"
-      ],
-      "react/react-in-jsx-scope": "off",
-      // To disable prettier in eslint
-      "prettier/prettier": 0,
-      // To disable inline-style warnings
-      "react-native/no-inline-styles": "off",
-      // ignore errors for the react-navigation package
-      "react/prop-types": "off"
-  }
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "@react-native",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "requireConfigFile": false,
+        "babelOptions": {
+            "presets": [
+                "@babel/preset-react"
+            ]
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "react/react-in-jsx-scope": "off",
+        // To disable prettier in eslint
+        "prettier/prettier": 0,
+        // To disable inline-style warnings
+        "react-native/no-inline-styles": "off",
+        // ignore errors for the react-navigation package
+        "react/prop-types": "off"
+    }
 }

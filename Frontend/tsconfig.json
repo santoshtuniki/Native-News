@@ -1,6 +1,29 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json",
-  "compilerOptions": {
-    "forceConsistentCasingInFileNames": false, // Fix for name regex pattern
-  }
+    "extends": "@react-native/typescript-config/tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@Component/*": [
+                "src/components/*"
+            ],
+            "@Screen/*": [
+                "src/screens/*"
+            ],
+            "@Constant/*": [
+                "src/constants/*"
+            ],
+            "@Navigation/*": [
+                "src/navigation/*"
+            ],
+            "@Api/*": [
+                "src/api/*"
+            ],
+            "@Action/*": [
+                "src/redux/actions/*"
+            ],
+            "Reducers/*": [
+                "src/redux/reducers/*"
+            ],
+        },
+    }
 }
