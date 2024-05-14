@@ -1,79 +1,89 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+#### slider/swiper based on FlatList
 
-# Getting Started
+    npm i react-native-app-intro-slider
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+#### media-queries, variables, dynamic themes, relative units, percents, math operations, scaling and other styling stuff.
 
-## Step 1: Start the Metro Server
+    npm i react-native-extended-stylesheet
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+#### native-driven gesture management APIs for building best possible touch-based experiences
 
-To start Metro, run the following command from the _root_ of your React Native project:
+    npm i react-native-gesture-handler
 
-```bash
-# using npm
-npm start
+#### An enhanced, animated, customizable React Native modal.
 
-# OR using Yarn
-yarn start
-```
+    npm i react-native-modal
 
-## Step 2: Start your Application
+#### More powerful alternative to Animated library for React Native.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+    npm i react-native-reanimated
 
-### For Android
+#### The hackable, full-featured Open Source HTML rendering solution for React Native
 
-```bash
-# using npm
-npm run android
+    npm i react-native-render-html
 
-# OR using Yarn
-yarn android
-```
+#### Cross-platform Toast experience for React Native
 
-### For iOS
+    npm i react-native-simple-toast
 
-```bash
-# using npm
-npm run ios
+#### A React-Native utility belt for scaling the size your apps UI across different sized devices
 
-# OR using Yarn
-yarn ios
-```
+    npm i react-native-size-matters
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+#### Material Design "Snackbar" component for Android and iOS.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+    npm i react-native-snackbar
 
-## Step 3: Modifying your App
+#### Swiper/carousel component for React Native
 
-Now that you have successfully run the app, let's modify it.
+    npm i react-native-snap-carousel
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+-----
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+#### Official React bindings for Redux
 
-## Congratulations! :tada:
+    npm i react-redux
 
-You've successfully run and modified your React Native App. :partying_face:
+#### Persist and rehydrate redux stores
 
-### Now what?
+    npm i redux-persist
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+#### Thunk middleware for Redux.
 
-# Troubleshooting
+    npm i redux-thunk
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+#### Dead simple Object schema validation
 
-# Learn More
+    npm i yup
 
-To learn more about React Native, take a look at the following resources:
+-----
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+#### React Native integration for React Navigation
+
+    npm i @react-navigation/native
+
+#### A flexible way to handle safe area, also works on Android and web.
+
+    npm i react-native-safe-area-context
+
+#### Native navigation primitives for your React Native app.
+
+    npm i react-native-screens
+
+#### Stack navigator for React Native using native primitives for navigation
+
+    npm i @react-navigation/native-stack
+
+#### Stack navigator for React Navigation.
+
+    npm i @react-navigation/stack
+
+#### A simple tab bar on the bottom of the screen that lets you switch between different routes.
+
+    npm i @react-navigation/bottom-tabs
+
+-----
+
+#### Customizable Icons for React Native
+
+    npm i react-native-vector-icons
