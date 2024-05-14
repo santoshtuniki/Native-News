@@ -87,3 +87,9 @@
 #### Customizable Icons for React Native
 
     npm i react-native-vector-icons
+
+-----
+
+#### ESLint
+
+    npm i eslint-plugin-react eslint-plugin-react-hooks
