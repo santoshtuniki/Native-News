@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 // component imports
 import RootNavigation from '@Navigation/index';
-import reduxStore from 'redux';
+import reduxStore from '@Redux/index';
 
 const reduxPersistStore = persistStore(reduxStore);
 
