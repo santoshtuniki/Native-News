@@ -13,14 +13,18 @@ export enum SCREENS {
     ACCOUNT = 'Account',
 }
 
-export enum TABICONS{
+export enum TABICONS {
     HOME = 'home-sharp',
     HEART = 'heart-sharp',
     BELL = 'notifications-sharp',
     PERSON = 'person-sharp',
 }
 
-export enum COLORS{
+export enum COLORS {
     ACTIVE_TAB = '#062743',
     INACTIVE_TAB = '#9ea9b3',
+}
+
+export enum KEYS {
+    asyncStorageKey = 'NewsApp001',
 }

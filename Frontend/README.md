@@ -38,6 +38,10 @@
 
     npm i react-native-snap-carousel
 
+#### Dead simple Object schema validation
+
+    npm i yup
+
 -----
 
 #### Official React bindings for Redux
@@ -52,9 +56,9 @@
 
     npm i redux-thunk
 
-#### Dead simple Object schema validation
+#### Storage
 
-    npm i yup
+    npm i @react-native-async-storage/async-storage
 
 -----
 
@@ -92,4 +96,8 @@
 
 #### ESLint
 
-    npm i eslint-plugin-react eslint-plugin-react-hooks
+    npm i eslint-plugin-react 
+    
+    npm i eslint-plugin-react-hooks
+
+-----

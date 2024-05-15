@@ -21,9 +21,12 @@
             "@Action/*": [
                 "redux/actions/*"
             ],
-            "Reducers/*": [
+            "@Reducer/*": [
                 "redux/reducers/*"
             ],
+            "@MiddleWare/*": [
+                "redux/middleware/*"
+            ]
         },
     }
 }
