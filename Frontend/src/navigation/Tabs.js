@@ -20,13 +20,15 @@ const Tabs = () => {
 
     return (
         <Tab.Navigator
-            tabBarOptions={{
-                activeTintColor: COLORS.ACTIVE_TAB,
-                inactiveTintColor: COLORS.INACTIVE_TAB,
-                tabStyle: {
+            screenOptions={{
+                tabBarStyle: {
                     marginVertical: moderateScale(10),
                 },
-                showLabel: false,
+                tabBarLabel: {
+                    activeTintColor: COLORS.ACTIVE_TAB,
+                    inactiveTintColor: COLORS.INACTIVE_TAB,
+                },
+                tabBarShowLabel: false,
             }}
         >
             <Tab.Screen

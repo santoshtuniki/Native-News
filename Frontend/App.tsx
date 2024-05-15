@@ -2,7 +2,7 @@
 import React from 'react';
 
 // component imports
-import RootNavigation from 'src/navigation/index';
+import RootNavigation from '@Navigation/index';
 
 const App = () => {
     return (
